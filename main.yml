@@ -10,7 +10,7 @@
     - name: Get whoami information
       win_whoami:
 
-    - name: Warn logged in users of impending upgrade
-      win_msg:
-        display_seconds: 60
-        msg: Automated upgrade about to start.
+    - name: Touch a file (creates if not present, updates modification time if present)
+      win_file:
+        path: C:\Temp\foo.conf
+        state: touch
