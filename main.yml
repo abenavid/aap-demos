@@ -9,7 +9,12 @@
 
     - name: Get whoami information
       win_whoami:
-
+    
+    - name: Ensure the C:\Temp directory exists
+      win_file:
+        path: C:\Temp
+        state: directory
+    
     - name: Touch a file (creates if not present, updates modification time if present)
       win_file:
         path: C:\Temp\foo.conf
