@@ -1,7 +1,6 @@
 ---
 - name: Test
-  hosts: localhost
+  hosts: rooalien
   tasks:
     - name: Debug
-      ansible.builtin.debug:
-        msg: "debugging"
+      ansible.builtin.ping:
