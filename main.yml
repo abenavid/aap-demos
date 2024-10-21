@@ -6,3 +6,7 @@
   tasks:
     - name: Debug
       win_ping:
+
+    - name: Get whoami information
+      win_whoami:
+    
