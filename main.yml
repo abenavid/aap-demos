@@ -3,4 +3,4 @@
   hosts: rooalien
   tasks:
     - name: Debug
-      ansible.builtin.ping:
+      ansible.windows.win_ping:
