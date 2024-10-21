@@ -9,4 +9,8 @@
 
     - name: Get whoami information
       win_whoami:
-    
+
+    - name: Warn logged in users of impending upgrade
+      win_msg:
+        display_seconds: 60
+        msg: Automated upgrade about to start.
