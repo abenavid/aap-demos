@@ -1,4 +1,11 @@
 ---
+- name: Check pywinrm
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Check pywinrm
+      command: pip freeze
+
 - name: Test
   hosts: rooalien
   become: false
