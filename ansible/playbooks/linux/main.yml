@@ -1,0 +1,42 @@
+---
+- name: Simple Linux Playbook
+  hosts: all
+  become: yes  # This allows Ansible to use sudo
+
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"  # This task will only run on Debian-based systems
+
+    - name: Install common packages
+      package:
+        name:
+          - vim
+          - htop
+          - tmux
+        state: present
+
+    - name: Create a new user
+      user:
+        name: ansible_user
+        comment: "Ansible created user"
+        groups: sudo
+        shell: /bin/bash
+
+    - name: Set up authorized key for the new user
+      authorized_key:
+        user: ansible_user
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+      
+    - name: Ensure a directory exists
+      file:
+        path: /opt/ansible_test
+        state: directory
+        mode: '0755'
+
+    - name: Create a test file
+      copy:
+        content: "This file was created by Ansible"
+        dest: /opt/ansible_test/test_file.txt
+        mode: '0644'

@@ -1,0 +1,24 @@
+---
+- name: Network Configuration Playbook
+  hosts: all
+  become: yes  # This allows Ansible to use sudo
+
+  tasks:
+    - name: Install net-tools package
+      package:
+        name: net-tools
+        state: present
+
+    - name: Configure network interface
+      ansible.netcommon.net_interface:
+        name: eth0
+        description: Primary network interface
+        enabled: yes
+        mtu: 1500
+
+    - name: Set up firewall rule
+      ansible.posix.firewalld:
+        port: 80/tcp
+        permanent: yes
+        state: enabled
+
