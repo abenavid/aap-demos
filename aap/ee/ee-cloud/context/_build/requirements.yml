@@ -1,0 +1,18 @@
+collections:
+- name: ansible.windows
+- name: ansible.utils
+- name: community.general
+- name: containers.podman
+- name: servicenow.itsm
+- name: azure.azcollection
+- name: amazon.aws
+- name: google.cloud
+- name: community.kubernetes
+- name: kubernetes.core
+- name: ansible.posix
+- name: ansible.netcommon
+- name: cyberark.conjur
+- name: cyberark.pas
+- name: crowdstrike.falcon
+- name: datadog.dd
+- name: cloud.terraform

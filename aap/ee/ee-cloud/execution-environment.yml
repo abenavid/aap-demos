@@ -1,0 +1,56 @@
+---
+version: 3
+
+### DEFINE OPTIONS ###
+options:
+  package_manager_path: /usr/bin/microdnf
+
+### DEFINE IMAGES ###
+images:
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel8:latest
+
+build_arg_defaults:
+ ANSIBLE_GALAXY_CLI_COLLECTION_OPTS: '--ignore-certs'
+
+### INJECT A CUSTOM ANSIBLE CFG ###
+additional_build_files:
+  - src: files
+    dest: configs
+
+additional_build_steps:
+  prepend_galaxy:
+    - COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg
+  prepend_builder:
+    - ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-8-x86_64-rpms.enabled=true"
+  prepend_final:
+    - ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-8-x86_64-rpms.enabled=true"
+
+### IMPORTANT: THE SECTION YOU WILL "MAINTAIN" ###
+dependencies:
+  system:
+    - curl
+    - git
+    - python3
+  python:
+    - requests
+    - jmespath
+  galaxy:
+    collections:
+      - name: ansible.windows
+      - name: ansible.utils
+      - name: community.general
+      - name: containers.podman
+      - name: servicenow.itsm
+      - name: azure.azcollection
+      - name: amazon.aws
+      - name: google.cloud
+      - name: community.kubernetes
+      - name: kubernetes.core
+      - name: ansible.posix
+      - name: ansible.netcommon
+      - name: cyberark.conjur
+      - name: cyberark.pas
+      - name: crowdstrike.falcon
+      - name: datadog.dd
+      - name: cloud.terraform

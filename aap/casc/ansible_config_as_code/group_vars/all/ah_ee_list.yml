@@ -1,0 +1,14 @@
+---
+ee_list:
+  - name: config_as_code
+    collections:
+      - name: infra.controller_configuration
+      - name: infra.ah_configuration
+      - name: infra.ee_utilities
+      - name: infra.aap_utilities
+      - name: awx.awx
+
+ee_image_push: true
+ee_prune_images: false
+ee_create_ansible_config: false
+...

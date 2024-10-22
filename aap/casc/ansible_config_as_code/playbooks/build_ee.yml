@@ -1,0 +1,11 @@
+---
+- name: Playbook to configure execution environments
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - "../vault1.yml"
+  tasks:
+    - name: Include ee_builder role
+      ansible.builtin.include_role:
+        name: infra.ee_utilities.ee_builder
+...
