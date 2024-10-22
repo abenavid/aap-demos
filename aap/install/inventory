@@ -1,0 +1,49 @@
+[automationcontroller]
+rhel-alexbenavides.local ansible_connection=local
+
+[automationhub]
+rhel-alexbenavides.local ansible_connection=local
+
+[automationeda]
+rhel-alexbenavides.local ansible_connection=local
+
+[automationgateway]
+rhel-alexbenavides.local ansible_connection=local
+
+[database]
+rhel-alexbenavides.local ansible_connection=local
+
+[all:vars]
+# installation variables
+bundle_install=true
+bundle_dir=/home/alexbenavides/Documents/aap25/ansible-automation-platform-containerized-setup-bundle-2.5-2.1-x86_64/bundle
+
+# database variables
+postgresql_admin_username=postgres
+postgresql_admin_password=eradicated
+
+# controller variables
+controller_admin_password=eradicated
+controller_pg_host=rhel-alexbenavides.local
+controller_pg_password=eradicated
+
+# hub variables
+hub_admin_password=eradicated
+hub_pg_host=rhel-alexbenavides.local
+hub_pg_password=eradicated
+
+# eda variables
+eda_admin_password=eradicated
+eda_pg_host=rhel-alexbenavides.local
+eda_pg_password=eradicated
+
+# gateway variables
+gateway_admin_password=eradicated
+gateway_pg_host=rhel-alexbenavides.local
+gateway_pg_password=eradicated
+
+# redis variables
+redis_mode=standalone
+
+## misc
+container_compress=pigz
