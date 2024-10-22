@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: Check pywinrm
-      command: pip freeze
+      command: pip3 freeze
 
 - name: Test
   hosts: rooalien
