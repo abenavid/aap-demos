@@ -5,6 +5,9 @@
   tasks:
     - name: Check pywinrm
       command: pip3 --version
+    
+    - name: Cat krb5.conf
+      command: cat etc/krb5.conf
 
 - name: Test
   hosts: rooalien
@@ -17,12 +20,5 @@
     - name: Get whoami information
       win_whoami:
     
-    - name: Ensure the C:\Temp directory exists
-      win_file:
-        path: C:\Temp
-        state: directory
-    
-    - name: Touch a file (creates if not present, updates modification time if present)
-      win_file:
-        path: C:\Temp\foo.conf
-        state: touch
+    - name: Cat krb5.conf
+      win_command: type C:\krb5.conf
