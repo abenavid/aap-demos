@@ -9,16 +9,16 @@
     - name: Cat krb5.conf
       command: ls /etc/krb5.conf.d/krb5.conf
 
-- name: Test
-  hosts: rooalien
-  become: false
-  gather_facts: false
-  tasks:
-    - name: Debug
-      win_ping:
+# - name: Test
+#   hosts: rooalien
+#   become: false
+#   gather_facts: false
+#   tasks:
+#     - name: Debug
+#       win_ping:
 
-    - name: Get whoami information
-      win_whoami:
+#     - name: Get whoami information
+#       win_whoami:
     
-    - name: Cat krb5.conf
-      win_command: type C:\etc\krb5.conf
+#     - name: Cat krb5.conf
+#       win_command: type C:\etc\krb5.conf
