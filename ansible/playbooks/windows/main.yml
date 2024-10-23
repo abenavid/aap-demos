@@ -7,7 +7,7 @@
       command: pip3 --version
     
     - name: Cat krb5.conf
-      command: ls /etc/krb5.conf.d
+      command: ls /etc/krb5.conf.d/krb5.conf
 
 - name: Test
   hosts: rooalien
