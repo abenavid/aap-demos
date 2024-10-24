@@ -1,6 +1,6 @@
 ---
 - name: Simple Linux Playbook
-  hosts: fedora-box-1-inv
+  hosts: localhost.localdomain
   become: true  # This allows Ansible to use sudo
   gather_facts: false
   tasks:
