@@ -1,6 +1,6 @@
 ---
 - name: Simple Linux Playbook
-  hosts: localhost
+  hosts: all
   become: true  # This allows Ansible to use sudo
   gather_facts: false
 
