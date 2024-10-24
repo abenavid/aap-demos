@@ -10,7 +10,7 @@
         msg: "{{ ansible_facts }}"
     
     - name: Print out /usr/.ssh/id_rsa.pub
-      shell: sudols /home/alexbenavides/aap
+      shell: sudo ls /home/alexbenavides
 
     - name: Print out /usr/.ssh/id_rsa.pub
       shell: ls /home/alexbenavides/aap/controller/data/job_execution
