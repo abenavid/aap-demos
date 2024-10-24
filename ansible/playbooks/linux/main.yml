@@ -5,7 +5,7 @@
   gather_facts: false
   tasks:
     - name: ssh into host
-      shell: ssh <username>@192.168.122.97
+      shell: ssh abenavid@192.168.122.97
 
 - name: Simple Linux Playbook
   hosts: localhost.localdomain
