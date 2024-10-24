@@ -10,13 +10,13 @@
         msg: "{{ ansible_facts }}"
     
     - name: Print out /usr/.ssh/id_rsa.pub
-      shell: ls /usr
+      shell: ls /home/alexbenavides/aap/controller/data/job_execution/usr
 
     - name: Print out /usr/.ssh/id_rsa.pub
-      shell: ls /usr/.ssh
+      shell: ls /home/alexbenavides/aap/controller/data/job_executionusr/.ssh
 
     - name: Print out /usr/.ssh/id_rsa.pub
-      shell: cat /usr/.ssh/id_rsa
+      shell: cat /home/alexbenavides/aap/controller/data/job_execution/usr/.ssh/id_rsa
 
 
     # - name: Update package cache
