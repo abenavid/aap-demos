@@ -18,6 +18,14 @@
       args:
         creates: /home/{{ ansible_user }}/.ssh/id_rsa
 
+    - name: Display public key
+      shell: cat /home/{{ ansible_user }}/.ssh/id_rsa.pub
+      register: public_key_output
+
+    - name: Show public key
+      debug:
+        msg: "{{ public_key_output.stdout }}"
+
     # - name: Update package cache
     #   apt:
     #     update_cache: yes
