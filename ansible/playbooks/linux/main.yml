@@ -1,7 +1,7 @@
 ---
 - name: Simple Linux Playbook
   hosts: localhost
-  become: false  # This allows Ansible to use sudo
+  become: true  # This allows Ansible to use sudo
   gather_facts: false
 
   tasks:
