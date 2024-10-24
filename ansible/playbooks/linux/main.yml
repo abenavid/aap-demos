@@ -8,34 +8,7 @@
     - name: Test connection
       ping:
 
-- name: Simple Linux Playbook
-  hosts: localhost
-  become: false  # This allows Ansible to use sudo
-  gather_facts: false
-  tasks:
-    - name: ssh into host
-      shell: ssh abenavid@192.168.122.97
-
-- name: Simple Linux Playbook
-  hosts: localhost.localdomain
-  become: true  # This allows Ansible to use sudo
-  gather_facts: false
-  tasks:
-    - name: Verify SSH connection
-      ping:
-
-    - name: Get hostname
-      command: hostname
-      register: hostname_result
-
-    - name: Display hostname
-      debug:
-        msg: "Successfully connected to {{ hostname_result.stdout }}"
-
-    - name: Get current user
-      command: whoami
-      register: user_result
-
-    - name: Display current user
-      debug:
-        msg: "Logged in as {{ user_result.stdout }}"
+    - name: Create a file on my mac
+      copy:
+        content: "Hello, world!"
+        dest: /tmp/hello.txt
