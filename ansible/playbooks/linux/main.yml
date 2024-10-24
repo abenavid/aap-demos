@@ -5,20 +5,12 @@
   gather_facts: false
 
   tasks:
-    - name: generate key pair
-      shell: ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N /dev/null
+
+
+    - name: Generate SSH key pair
+      command: ssh-keygen -t rsa -b 2048 -f /home/{{ ansible_user }}/.ssh/id_rsa -N ''
       args:
-        creates: ~/.ssh/id_rsa 
-
-    - name: test public key
-      shell: ssh-keygen -l -f ~/.ssh/id_rsa.pub
-      changed_when: false
-
-    - name: retrieve public key
-      shell: cat ~/.ssh/id_rsa.pub
-      register: master_public_key
-      changed_when: false
-
+        creates: /home/{{ ansible_user }}/.ssh/id_rsa
 
     # - name: Update package cache
     #   apt:
