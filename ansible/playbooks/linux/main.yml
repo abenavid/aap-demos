@@ -8,7 +8,13 @@
     - name: Test connection
       ping:
 
-    - name: Create a file on my mac
+    - name: Ensure /tmp directory exists
+      file:
+        path: /tmp/test/hello
+        state: directory
+        mode: '0777'
+
+    - name: Create a file on my VM
       copy:
         content: "Hello, world!"
-        dest: /tmp/hello.txt
+        dest: /tmp/test/hello/hello.txt
