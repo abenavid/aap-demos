@@ -5,7 +5,7 @@
   tasks:
     - name: Print the hostname
       debug:
-        msg: "{{ hostvars[host]['ansible_facts']['fqdn'] }}"
+        msg: "{{ hostvars['ansible_facts']['fqdn'] }}"
 
 - name: Test connection
   hosts: alex-mac
