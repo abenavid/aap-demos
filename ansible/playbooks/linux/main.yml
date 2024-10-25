@@ -1,11 +1,11 @@
 ---
 - name: Check which host is running the playbook
   hosts: localhost
-  gather_facts: false
+  gather_facts: true
   tasks:
     - name: Print the hostname
       debug:
-        msg: "{{ ansible_fqdn }}"
+        msg: "{{ hostvars[host]['ansible_facts']['fqdn'] }}"
 
 - name: Test connection
   hosts: alex-mac
