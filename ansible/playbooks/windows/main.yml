@@ -3,26 +3,27 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Check pywinrm
-      command: pip3 --version
-    
-    - name: Cat krb5.conf
-      command: cat /etc/krb5.conf.d/krb5.conf
-    
-    - name: pause for 50 seconds
-      pause:
-        minutes: 5
+    - name: Ping Windows hosts
+      win_ping:
 
-# - name: Test
-#   hosts: rooalien
-#   become: false
-#   gather_facts: false
-#   tasks:
-#     - name: Debug
-#       win_ping:
+    - name: Get system information
+      win_shell: systeminfo
+      register: system_info
 
-#     - name: Get whoami information
-#       win_whoami:
-    
-#     - name: Cat krb5.conf
-#       win_command: type C:\etc\krb5.conf
+    - name: Create a test directory
+      win_file:
+        path: C:\TestDir
+        state: directory
+
+    - name: Create a test file
+      win_copy:
+        content: "Hello from Ansible!"
+        dest: C:\TestDir\test.txt
+
+    - name: Get disk space information
+      win_shell: Get-PSDrive -PSProvider FileSystem
+      register: disk_info
+
+    - name: Display disk information
+      debug:
+        var: disk_info.stdout_lines
