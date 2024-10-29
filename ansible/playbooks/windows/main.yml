@@ -1,6 +1,6 @@
 ---
 - name: Check pywinrm
-  hosts: localhost
+  hosts: rooalien
   gather_facts: false
   tasks:
     - name: Ping Windows hosts
