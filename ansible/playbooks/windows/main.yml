@@ -1,26 +1,26 @@
 ---
 - name: Check pywinrm
   hosts: rooalien
-  gather_facts: false
-  tasks:
-    - name: Get system information
-      win_shell: systeminfo
-      register: system_info
+  gather_facts: true
+  # tasks:
+  #   - name: Get system information
+  #     win_shell: systeminfo
+  #     register: system_info
 
-    - name: Create a test directory
-      win_file:
-        path: C:\TestDir
-        state: directory
+  #   - name: Create a test directory
+  #     win_file:
+  #       path: C:\TestDir
+  #       state: directory
 
-    - name: Create a test file
-      win_copy:
-        content: "Hello from Ansible!"
-        dest: C:\TestDir\test.txt
+  #   - name: Create a test file
+  #     win_copy:
+  #       content: "Hello from Ansible!"
+  #       dest: C:\TestDir\test.txt
 
-    - name: Get disk space information
-      win_shell: Get-PSDrive -PSProvider FileSystem
-      register: disk_info
+  #   - name: Get disk space information
+  #     win_shell: Get-PSDrive -PSProvider FileSystem
+  #     register: disk_info
 
-    - name: Display disk information
-      debug:
-        var: disk_info.stdout_lines
+  #   - name: Display disk information
+  #     debug:
+  #       var: disk_info.stdout_lines
