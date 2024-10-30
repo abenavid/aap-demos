@@ -50,6 +50,7 @@ ARG PKGMGR
 
 RUN $PYCMD -m pip install --no-cache-dir bindep pyyaml packaging
 ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-8-x86_64-rpms.enabled=true"
+RUN microdnf install -y dnf
 
 COPY --from=galaxy /usr/share/ansible /usr/share/ansible
 
