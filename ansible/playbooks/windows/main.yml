@@ -3,8 +3,6 @@
   hosts: rooalien
   gather_facts: false
   tasks:
-    - win_ping:
-    - win_whoami:
     - name: Get system information
       win_shell: systeminfo
       register: system_info
